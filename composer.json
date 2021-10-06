@@ -1,0 +1,56 @@
+{
+    "name": "jackardios/elastic-json-api-paginate",
+    "description": "ElasticScoutDriverPlus extension for https://github.com/spatie/laravel-json-api-paginate",
+    "keywords": [
+        "jackardios",
+        "spatie",
+        "laravel-json-api-paginate",
+        "scout",
+        "elastic"
+    ],
+    "homepage": "https://github.com/jackardios/elastic-json-api-paginate",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Salakhutdinov Salavat",
+            "email": "salahutdinov.salavat@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.3|^8.0",
+        "illuminate/support": "^6.0|^7.0|^8.0",
+        "jackardios/elastic-scout-driver-plus": "^3.0",
+        "spatie/laravel-json-api-paginate": "^1.10"
+    },
+    "require-dev": {
+        "laravel/scout": "^9.3",
+        "orchestra/testbench": "^4.0|^5.0|^6.0",
+        "phpunit/phpunit": "^8.0|^9.0",
+        "roave/security-advisories": "dev-latest"
+    },
+    "autoload": {
+        "psr-4": {
+            "Jackardios\\ElasticJsonApiPaginate\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Jackardios\\ElasticJsonApiPaginate\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Jackardios\\ElasticJsonApiPaginate\\JsonApiPaginateServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
