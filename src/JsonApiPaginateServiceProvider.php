@@ -3,7 +3,7 @@
 namespace Jackardios\ElasticJsonApiPaginate;
 
 use ElasticScoutDriverPlus\Builders\SearchRequestBuilder;
-use Illuminate\Pagination\AbstractPaginator;
+use ElasticScoutDriverPlus\Paginator;
 use Illuminate\Support\Arr;
 use Illuminate\Support\ServiceProvider;
 
@@ -16,7 +16,9 @@ class JsonApiPaginateServiceProvider extends ServiceProvider
 
     protected function registerMacros(): void
     {
-        SearchRequestBuilder::macro(config('json-api-paginate.method_name', 'jsonPaginate'), function (?int $maxResults = null, ?int $defaultSize = null): AbstractPaginator {
+        SearchRequestBuilder::macro(config('json-api-paginate.method_name', 'jsonPaginate'), function (?int $maxResults = null, ?int $defaultSize = null): Paginator {
+            /** @var SearchRequestBuilder $this */
+            
             $maxResults = $maxResults ?? config('json-api-paginate.max_results', 30);
             $defaultSize = $defaultSize ?? config('json-api-paginate.default_size', 30);
             $numberParameter = config('json-api-paginate.number_parameter', 'number');
