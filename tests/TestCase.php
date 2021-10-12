@@ -56,6 +56,7 @@ abstract class TestCase extends Orchestra
 
         $app['config']->set('app.key', '6rE9Nz59bGRbeMATftriyQjrpF7DcOQm');
         $app['config']->set('scout.driver', 'elastic');
+        $app['config']->set('elastic.scout_driver.refresh_documents', true);
 
         return $app;
     }
