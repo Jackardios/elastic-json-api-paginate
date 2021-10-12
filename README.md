@@ -1,8 +1,5 @@
 # A paginator that plays nice with the JSON API spec
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/jackardios/elastic-json-api-paginate.svg?style=flat-square)](https://packagist.org/packages/jackardios/elastic-json-api-paginate)
-[![Total Downloads](https://img.shields.io/packagist/dt/jackardios/elastic-json-api-paginate.svg?style=flat-square)](https://packagist.org/packages/jackardios/elastic-json-api-paginate)
-
 This package is just [ElasticScoutDriverPlus](https://github.com/Jackardios/elastic-scout-driver-plus/) extension for [spatie/laravel-json-api-paginate](https://github.com/spatie/laravel-json-api-paginate)
 
 In a vanilla Laravel application [the query builder paginators will listen to `page` request parameter](https://laravel.com/docs/master/pagination#paginating-query-builder-results). This works great, but it does follow the example solution of [the json:api spec](http://jsonapi.org/). That example [expects](http://jsonapi.org/examples/#pagination) the query builder paginator to listen to the `page[number]` and `page[size]` request parameters. 
@@ -107,6 +104,14 @@ By default the maximum page size is set to 30. You can change this number in the
 $maxResults = 60;
 
 YourModel::searchQuery(...)->jsonPaginate($maxResults);
+```
+
+By default ElasticScoutDriverPlus paginates raw results, if you want to paginate models, call the `onlyModels` method after `jsonPaginate`
+
+```php
+$maxResults = 60;
+
+YourModel::searchQuery(...)->jsonPaginate($maxResults)->onlyModels();
 ```
 
 ## Testing
