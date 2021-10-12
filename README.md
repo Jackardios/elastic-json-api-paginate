@@ -109,9 +109,7 @@ YourModel::searchQuery(...)->jsonPaginate($maxResults);
 By default ElasticScoutDriverPlus paginates raw results, if you want to paginate models, call the `onlyModels` method after `jsonPaginate`
 
 ```php
-$maxResults = 60;
-
-YourModel::searchQuery(...)->jsonPaginate($maxResults)->onlyModels();
+YourModel::searchQuery(...)->jsonPaginate()->onlyModels();
 ```
 
 ## Testing
